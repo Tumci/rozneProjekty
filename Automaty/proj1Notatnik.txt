@@ -1,0 +1,31 @@
+﻿WinMinimizeAll()
+Run("notepad.exe","")
+;oczekiwanie aż włączy się notpad
+WinWait("[CLASS:Notepad]", "", 4)
+;wybieranie elementy z menu
+WinMenuSelectItem("[CLASS:Notepad]","","For&mat","&Czcionka")
+WinWait("Czcionka","",4)
+; ustawianie wielkosci i rodzaju czcionki
+ControlSetText("Czcionka", "", "[CLASS:Edit; INSTANCE:3]", "20")
+ControlClick("Czcionka","","[CLASS:ComboLBox; INSTANCE:1]")
+;Przewijanie na samą górę
+For $index = 0 To 30
+	Send("{PGUP}")
+Next
+;Czcionka New Currier
+For $index = 0 To 55
+	Send("{DOWN}")
+	Sleep(140)
+Next
+ControlClick("Czcionka", "OK", "[CLASS:Button; INSTANCE:5]")
+;Wpisywanie tekstu do edytora
+ControlSetText("[CLASS:Notepad]", "", "[CLASS:Edit; INSTANCE:1]", "Cześć,")
+Sleep(2000)
+ControlSetText("[CLASS:Notepad]", "", "[CLASS:Edit; INSTANCE:1]", "Cześć, " & @CRLF & "to moja pierwsza lekcja pisania w tym programie.")
+Sleep(4000)
+ControlSetText("[CLASS:Notepad]", "", "[CLASS:Edit; INSTANCE:1]", "Proszę o cierpliwoć i wyrozumiałość, jeżeli popełnię jakieś błędy.")
+Sleep(5000)
+ControlSetText("[CLASS:Notepad]", "", "[CLASS:Edit; INSTANCE:1]", "Proszę o cierpliwoć i wyrozumiałość, jeżeli popełnię jakieś błędy." & @CRLF & @CRLF &"Pozdrowienia dla każdego wpierającego :)")
+Sleep(4000)
+WinClose("[CLASS:Notepad]")
+WinMinimizeAllUndo()

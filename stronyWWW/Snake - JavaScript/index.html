@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="descryption" content="Strona z już starą, ale naprawdę dobrą grą snake.">
+	<meta name="keywords" content="snake, wąż, gra w węża, snake game, retro games">
+	<meta name="author" content="Kamil Janiak">
+	<meta name="e-mail" content="kamil.janiak.qa@gmail.com">
+	<meta name="creation-data" content="10.11.2018">
+	<title>Snake</title>
+	<link rel="stylesheet" type="text/css" href ="css\header.css">
+	<link rel="stylesheet" type="text/css" href ="css\main.css">
+	<link rel="stylesheet" type="text/css" href ="css\footer.css">
+	<link rel="shortcut icon" href="graf/depositphotos_54333315-stock-illustration-snake.jpg">
+	<script async src = "js/btRefresh.js"></script>
+</head>
+<body>
+	<div id="container">
+		<header>
+			<h1 id="pageTitle">Gra w Snake'a</h1>
+		</header>
+		<div class="scorePoints">Liczba punktów: <span id="score"></span></div>
+		<div class="refreshBox"><button id="btReload" onclick="refresh()">Zacznij grę od nowa</button></div>
+		<div class="clear"></div>
+		<main>	
+			<!--Plansza po której porusza się wąż-->
+			<canvas id="canvas" width="800px" height = "400px" style="border: 1px solid rgb(108, 108, 103);">
+				Twoja przeglądarka nie obsługuje elementu canvas
+			</canvas>
+			<script async src = "js/snake.js"></script>
+		</main>
+		<section class="rules">
+			<article class = "rules-item">
+				<h3>Zasady poruszania się Sneak'a:</h3>
+				<ul>
+					<li class="point"><b>W</b> - do góry</li>
+					<li class="point"><b>S</b> - w dół</li>
+					<li class="point"><b>A</b> - na lewo</li>
+					<li class="point"><b>D</b> - na prawo</li>
+					<li class="point"><b>Q</b> - pauza</li>
+					<li class="point"><b>R</b> - zresetowanie gry</li>
+				</ul>
+			</article>
+			<article class = "rules-item">
+				<h3>Zasady gry:</h3>
+				<p class= "rulesText">Zadaniem gracza jest zdobycie jak <b>największej ilości punktów</b>, 
+					ktore uzyskuje po najechaniu wężem na pole "jabłko" zaznaczone na planszy. Pola "jabłka" są za każdym razem losowo umieszczane na planszy. 
+				<br>Gdy wąż najedzie na pole zaznaczone na planszy "zjada" ten punkt i dzięki czemu się powiększa. 
+					A system generuje nowy losowy punkt na planszy.</p>
+				<p class= "rulesText">Gdy gracz spowoduje wjechanie wężem w obręb planszy wtedy gra się kończy.</p>
+			</article>
+		</section>
+		<footer>
+			<section class= "aboutMe">Created by Kamil Janiak e-mail: <a href="mailto:kamil.janiak.qa@gmail.com">kamil.janiak.qa@gmail.com</a></section>
+			<section class="date">10.11.2018r.</section>
+		</footer>
+	</div>
+</body>
+</html>
