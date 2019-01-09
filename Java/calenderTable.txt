@@ -1,0 +1,65 @@
+package java21;
+/**
+ * @author Kamil
+ */
+public class taskDay4_Calender {
+    public static void main(String[] args) {
+        int yearIn = 2016;
+        
+        // Sprawdzanie, czy program przekazuje argumenty wiersza polececeñ
+        if(args.length>0)
+            yearIn = Integer.parseInt(args[0]);
+        String [][]date = countDays(yearIn);
+        
+        // Wypisanie informacji na ekranie
+        System.out.println("W "+ yearIn + " dni w roku.");
+        for(int i = 0;i<date[0].length;i++){
+            for(int x = 0;x<date.length;x++){          
+                System.out.println(date[x][i]);
+            }
+        }
+    }
+    static String [][]countDays(int year){
+        int count = 1;
+        final byte MONTHIN = 12;
+        byte dayIn = 31;
+        String [][] date = new String [dayIn][MONTHIN];
+        
+        //Pêtla dla miesiêcy oraz wylicza ile dany miesi¹c ma dni
+        for(byte month = 1;month<13;month++){
+            switch(month){
+                case 1:
+                case 3:
+                case 5:
+                case 7:
+                case 8:
+                case 10:
+                case 12:
+                    count = 31;
+                    break;
+                case 4:
+                case 6:
+                case 9:
+                case 11:
+                    count = 30;
+                case 2:
+                    if(year %4 == 0)
+                        count = 29;
+                    else
+                        count =29;
+                    if((year %100 == 0) && (year % 400 != 0))
+                        count = 28;
+            }
+            byte x = 0;
+            byte day = 1;
+            
+            //Pêtla dla dni
+            for(int i = 0;i<count;i++){
+                date [x][month-1] = day+"/"+ month +"/" + year;
+                x++;
+                day++;
+            }
+        }
+        return date;
+    }
+}
