@@ -62,7 +62,16 @@ public class taskDay4_Calender {
             
             //Pętla dla dni
             for(int i = 0;i<count;i++){
-                date [x][month-1] = day+"/"+ month +"/" + year;
+                // wpisuje w zero w cyfry jedno znakowe by ladnie wygladalo
+                String days = Integer.toString(day);
+                if(day <10)
+                    days = "0"+day;
+                // wpisuje w zero w cyfry jedno znakowe by ladnie wygladalo
+                String months = Integer.toString(month);
+                if(month <10)
+                    months = "0"+month;
+                // wpisuje daty do koncowej tablicy
+                date [x][month-1] = days+"/"+ months +"/" + year;
                 x++;
                 day++;
             }
