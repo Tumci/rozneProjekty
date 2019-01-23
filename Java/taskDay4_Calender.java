@@ -1,20 +1,23 @@
 package java21;
-/**
+/**t
+ *
  * @author Kamil
  */
 public class taskDay4_Calender {
     public static void main(String[] args) {
         int yearIn = 2016;
         
-        // Sprawdzanie, czy program przekazuje argumenty wiersza polececeñ
+        // Sprawdzanie, czy program przekazuje argumenty wiersza polececeÅ„
         if(args.length>0)
             yearIn = Integer.parseInt(args[0]);
         String [][]date = countDays(yearIn);
         
         // Wypisanie informacji na ekranie
         System.out.println("W "+ yearIn + " dni w roku.");
-        for(int i = 0;i<date[0].length;i++){
-            for(int x = 0;x<date.length;x++){          
+        for(int i = 0;i<date[0].length;i++){ // petla miesiecy
+            for(int x = 0;x<date.length;x++){ // petla dni
+                if(date[x][i] == null)
+                    continue;
                 System.out.println(date[x][i]);
             }
         }
@@ -25,7 +28,7 @@ public class taskDay4_Calender {
         byte dayIn = 31;
         String [][] date = new String [dayIn][MONTHIN];
         
-        //Pêtla dla miesiêcy oraz wylicza ile dany miesi¹c ma dni
+        //PÄ™tla dla miesiÄ™cy oraz wylicza ile dany miesiÄ…c ma dni
         for(byte month = 1;month<13;month++){
             switch(month){
                 case 1:
@@ -42,18 +45,22 @@ public class taskDay4_Calender {
                 case 9:
                 case 11:
                     count = 30;
+                    break;
                 case 2:
-                    if(year %4 == 0)
-                        count = 29;
-                    else
-                        count =29;
-                    if((year %100 == 0) && (year % 400 != 0))
+                    if((year %100 == 0) && (year % 400 != 0)){
                         count = 28;
+                        break;
+                    }else if(year %4 == 0){
+                        count = 29;
+                        break;
+                    }else
+                        count =29;
+                        break;
             }
             byte x = 0;
             byte day = 1;
             
-            //Pêtla dla dni
+            //PÄ™tla dla dni
             for(int i = 0;i<count;i++){
                 date [x][month-1] = day+"/"+ month +"/" + year;
                 x++;
